@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>wonder | ホームページ制作サービス</title>
+  <meta name="description" content="中小企業・個人事業主向けホームページ制作。企画・デザイン・実装・公開・保守までワンストップ。初めてでも安心の丁寧サポート。">
+  <!-- OGP -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="wonder | ホームページ制作サービス" />
+  <meta property="og:description" content="企画・デザイン・実装・公開・保守までワンストップ。初めてでも安心。" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1529336953121-ad5a0d43d0d2?w=1200" />
+  <link rel="icon" href="assets/wonder-logo.svg" type="image/svg+xml" />
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { brand: { DEFAULT:'#2563eb', dark:'#1e40af', light:'#60a5fa' }}}}
+    }
+  </script>
+  <style>html{scroll-behavior:smooth}</style>
+</head>
+<body class="bg-white text-slate-800">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/80 border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="index.html" class="flex items-center gap-3">
+          <!-- ロゴ（インラインSVG） -->
+          <svg viewBox="0 0 48 48" class="h-9 w-9" aria-hidden="true" role="img">
+            <defs>
+              <linearGradient id="wgrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#2563eb"/>
+                <stop offset="1" stop-color="#60a5fa"/>
+              </linearGradient>
+            </defs>
+            <path d="M6 8 L12 40 L24 16 L36 40 L42 8"
+                  fill="none" stroke="url(#wgrad)" stroke-width="6"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="font-semibold">wonder</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-8 text-sm">
+          <a href="#features" class="hover:text-brand">特徴</a>
+          <a href="#plans" class="hover:text-brand">料金</a>
+          <a href="#process" class="hover:text-brand">制作の流れ</a>
+          <a href="portfolio.html" class="hover:text-brand">制作実績</a>
+          <a href="#faq" class="hover:text-brand">FAQ</a>
+          <a href="#contact" class="px-4 py-2 rounded-xl bg-brand text-white hover:bg-brand-dark">無料相談</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden inline-flex items-center justify-center rounded-xl border px-3 py-2">
+          <span class="sr-only">メニュー</span>☰
+        </button>
+      </div>
+    </div>
+    <!-- Mobile -->
+    <div id="mobileNav" class="md:hidden hidden border-t bg-white">
+      <div class="px-4 py-3 flex flex-col gap-3 text-sm">
+        <a href="#features" class="hover:text-brand">特徴</a>
+        <a href="#plans" class="hover:text-brand">料金</a>
+        <a href="#process" class="hover:text-brand">制作の流れ</a>
+        <a href="portfolio.html" class="hover:text-brand">制作実績</a>
+        <a href="#faq" class="hover:text-brand">FAQ</a>
+        <a href="#contact" class="px-4 py-2 rounded-xl bg-brand text-white text-center hover:bg-brand-dark">無料相談</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-brand/10 via-transparent to-brand/5"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">
+            伝わるホームページで、<br class="hidden sm:block"/>ビジネスを加速。
+          </h1>
+          <p class="mt-5 text-lg text-slate-600">
+            企画・デザイン・実装・SEO・運用まで、ワンストップ。初めての方にも分かりやすく、目的に合わせて最適なサイトをご提案します。
+          </p>
+          <!-- CTA buttons（実績ボタン追加） -->
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="#contact" class="px-6 py-3 rounded-xl bg-brand text-white font-semibold hover:bg-brand-dark">無料で相談する</a>
+            <a href="#plans" class="px-6 py-3 rounded-xl border font-semibold hover:border-brand hover:text-brand">料金を見る</a>
+            <a href="portfolio.html" class="px-6 py-3 rounded-xl border font-semibold hover:border-brand hover:text-brand">制作実績を見る</a>
+          </div>
+          <div class="mt-6 flex gap-4 text-xs text-slate-500">
+            <span class="inline-flex items-center gap-1">⚡ 最短2週間で公開</span>
+            <span class="inline-flex items-center gap-1">🛡️ SSL/セキュリティ対応</span>
+            <span class="inline-flex items-center gap-1">📱 完全レスポンシブ</span>
+          </div>
+        </div>
+        <div class="relative">
+          <img class="rounded-2xl shadow-xl ring-1 ring-slate-900/5" src="https://images.unsplash.com/photo-1526455192801-135a71cc53ac?w=1400" alt="Web制作のイメージ" />
+          <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-lg p-4 border">
+            <p class="text-sm font-semibold">検索表示順位 ↑</p>
+            <p class="text-xs text-slate-500">基本の内部SEO最適化込み</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold">選ばれる理由</h2>
+      <p class="mt-2 text-slate-600">成果につながる要素を標準搭載。追加費用なしで必要十分な品質をご提供します。</p>
+      <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-6 bg-white rounded-2xl border shadow-sm"><h3 class="font-semibold text-lg">戦略的ヒアリング</h3><p class="mt-2 text-sm text-slate-600">目的・ターゲット・強みを明確化。サイト構成や導線設計に反映します。</p></div>
+        <div class="p-6 bg-white rounded-2xl border shadow-sm"><h3 class="font-semibold text-lg">モバイル最適化</h3><p class="mt-2 text-sm text-slate-600">スマホ・タブレット・PCで快適表示。Core Web Vitals を意識した軽量設計。</p></div>
+        <div class="p-6 bg-white rounded-2xl border shadow-sm"><h3 class="font-semibold text-lg">SEO/アクセス解析</h3><p class="mt-2 text-sm text-slate-600">メタ情報、OGP、サイトマップ等を整備。公開後の効果測定も支援。</p></div>
+        <div class="p-6 bg-white rounded-2xl border shadow-sm"><h3 class="font-semibold text-lg">更新しやすいCMS</h3><p class="mt-2 text-sm text-slate-600">WordPressやHeadless CMSに対応。ニュース投稿や事例追加も簡単。</p></div>
+        <div class="p-6 bg-white rounded-2xl border shadow-sm"><h3 class="font-semibold text-lg">セキュリティ/保守</h3><p class="mt-2 text-sm text-slate-600">常時SSL、バックアップ、自動アップデートの設計で安心を提供します。</p></div>
+        <div class="p-6 bg-white rounded-2xl border shadow-sm"><h3 class="font-semibold text-lg">スピード納品</h3><p class="mt-2 text-sm text-slate-600">テンプレ＋カスタムで最短2週間。急ぎのキャンペーンLPにも対応。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plans -->
+  <section id="plans" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold">料金プラン</h2>
+      <p class="mt-2 text-slate-600">まずは低価格で始めたい方向けに、お求めやすい価格帯をご用意しました（品質は維持）。規模に合わせて柔軟にカスタマイズ可能。</p>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl border shadow-sm bg-white">
+          <div class="text-sm font-semibold text-brand">Starter</div>
+          <h3 class="mt-1 text-2xl font-bold">¥49,800〜</h3>
+          <p class="text-sm text-slate-500">5セクション構成のシンプルLP</p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li>✅ レスポンシブ対応</li><li>✅ デザインテンプレ</li><li>✅ 基本SEO/OGP</li><li>✅ お問い合わせフォーム</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand text-white hover:bg-brand-dark">このプランで相談</a>
+        </div>
+        <div class="p-6 rounded-2xl border-2 border-brand shadow-md bg-white">
+          <div class="text-sm font-semibold text-brand">Business（おすすめ）</div>
+          <h3 class="mt-1 text-2xl font-bold">¥99,800〜</h3>
+          <p class="text-sm text-slate-500">小規模サイト（〜5ページ）／低価格で導入しやすい</p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li>✅ オリジナルデザイン</li><li>✅ ブログ/CMS導入</li><li>✅ 予約/地図/SNS連携</li><li>✅ 公開後1ヶ月サポート</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand text-white hover:bg-brand-dark">このプランで相談</a>
+        </div>
+        <div class="p-6 rounded-2xl border shadow-sm bg-white">
+          <div class="text-sm font-semibold text-brand">Premium</div>
+          <h3 class="mt-1 text-2xl font-bold">¥198,000〜</h3>
+          <p class="text-sm text-slate-500">中規模サイト/機能追加（予約/決済/会員機能）</p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li>✅ 会員/予約/決済の導入</li><li>✅ パフォーマンス最適化</li><li>✅ カスタム開発/API連携</li><li>✅ 運用支援/レポーティング</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-block px-4 py-2 rounded-xl bg-brand text-white hover:bg-brand-dark">このプランで相談</a>
+        </div>
+      </div>
+      <p class="mt-4 text-xs text-slate-500">※ 表示価格は税込の目安です。要件定義後に正式お見積り。学割・起業割・地域事業者割あり。</p>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold">制作の流れ</h2>
+      <div class="mt-10 grid md:grid-cols-5 gap-6">
+        <div class="p-5 bg-white rounded-2xl border"><div class="text-sm font-semibold text-brand">01 相談</div><p class="mt-1 text-sm text-slate-600">ゴール、予算、納期をヒアリング。最適な進め方をご提案。</p></div>
+        <div class="p-5 bg-white rounded-2xl border"><div class="text-sm font-semibold text-brand">02 企画/設計</div><p class="mt-1 text-sm text-slate-600">サイトマップ、ワイヤー、原稿作成支援。</p></div>
+        <div class="p-5 bg-white rounded-2xl border"><div class="text-sm font-semibold text-brand">03 デザイン</div><p class="mt-1 text-sm text-slate-600">方向性確認→モック→フィードバック。</p></div>
+        <div class="p-5 bg-white rounded-2xl border"><div class="text-sm font-semibold text-brand">04 実装/テスト</div><p class="mt-1 text-sm text-slate-600">レスポンシブ/速度/SEO/フォーム動作検証。</p></div>
+        <div class="p-5 bg-white rounded-2xl border"><div class="text-sm font-semibold text-brand">05 公開/運用</div><p class="mt-1 text-sm text-slate-600">独自ドメイン/サーバ設定/解析設置。更新もサポート。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold">よくあるご質問</h2>
+      <div class="mt-6 space-y-3">
+        <details class="group p-4 bg-white rounded-2xl border">
+          <summary class="cursor-pointer list-none font-semibold">納期はどれくらいですか？</summary>
+          <p class="mt-2 text-sm text-slate-600">LPは2〜3週間、小規模サイトは4〜6週間が目安です。お急ぎ案件もご相談ください。</p>
+        </details>
+        <details class="group p-4 bg-white rounded-2xl border">
+          <summary class="cursor-pointer list-none font-semibold">写真や文章が用意できていません。</summary>
+          <p class="mt-2 text-sm text-slate-600">素材選定や撮影、ライティングもサポート可能です。ヒアリングから一緒に作成します。</p>
+        </details>
+        <details class="group p-4 bg-white rounded-2xl border">
+          <summary class="cursor-pointer list-none font-semibold">公開後の更新や保守はできますか？</summary>
+          <p class="mt-2 text-sm text-slate-600">月額保守プランをご用意。軽微な修正やバックアップ、セキュリティ対応を代行します。</p>
+        </details>
+        <details class="group p-4 bg-white rounded-2xl border">
+          <summary class="cursor-pointer list-none font-semibold">ドメインやサーバの契約も任せられますか？</summary>
+          <p class="mt-2 text-sm text-slate-600">はい。独自ドメイン取得、サーバ契約、SSL設定まで代行可能です。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="p-8 rounded-2xl border bg-white shadow-sm">
+        <h2 class="text-2xl sm:text-3xl font-bold">無料相談・お見積り</h2>
+        <p class="mt-2 text-slate-600 text-sm">
+          フォームまたは <a href="mailto:yuki030107higa@gmail.com" class="text-brand underline">yuki030107higa@gmail.com</a> へ直接ご連絡ください。営業日24時間以内に返信します。
+        </p>
+        <form class="mt-6 grid gap-4" name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact">
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="text-sm">お名前</label><input required name="name" class="mt-1 w-full rounded-xl border px-3 py-2" placeholder="山田 太郎" /></div>
+            <div><label class="text-sm">メールアドレス</label><input required type="email" name="email" class="mt-1 w-full rounded-xl border px-3 py-2" placeholder="you@example.com" /></div>
+          </div>
+          <div><label class="text-sm">ご相談内容</label><textarea required name="message" rows="5" class="mt-1 w-full rounded-xl border px-3 py-2" placeholder="目的、希望納期、参考サイトなど"></textarea></div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="text-sm">ご予算目安</label><select name="budget" class="mt-1 w-full rounded-xl border px-3 py-2"><option>未定</option><option>〜10万円</option><option>10〜20万円</option><option>20〜40万円</option><option>40万円以上</option></select></div>
+            <div><label class="text-sm">希望納期</label><input name="deadline" class="mt-1 w-full rounded-xl border px-3 py-2" placeholder="例）2月末まで" /></div>
+          </div>
+          <label class="inline-flex items-center gap-2 text-sm">
+            <input type="checkbox" required class="rounded" />
+            <span><a href="privacy.html" class="underline text-brand">プライバシーポリシー</a> に同意します</span>
+          </label>
+          <button type="submit" class="mt-2 px-5 py-3 rounded-xl bg-brand text-white font-semibold hover:bg-brand-dark">送信する</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <!-- フッターロゴ（インラインSVG） -->
+          <svg viewBox="0 0 48 48" class="h-8 w-8" aria-hidden="true" role="img">
+            <defs>
+              <linearGradient id="wgrad2" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#2563eb"/>
+                <stop offset="1" stop-color="#60a5fa"/>
+              </linearGradient>
+            </defs>
+            <path d="M6 8 L12 40 L24 16 L36 40 L42 8"
+                  fill="none" stroke="url(#wgrad2)" stroke-width="6"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="text-sm">
+            <div class="font-semibold">wonder</div>
+            <div class="text-slate-500">© <span id="year"></span> wonder. All rights reserved.</div>
+          </div>
+        </div>
+        <div class="text-sm flex gap-5 text-slate-600">
+          <a href="privacy.html" class="hover:text-brand">プライバシーポリシー</a>
+          <a href="law.html" class="hover:text-brand">特定商取引法に基づく表記</a>
+          <a href="portfolio.html" class="hover:text-brand">制作実績</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const btn = document.getElementById('menuBtn');
+    const nav = document.getElementById('mobileNav');
+    if (btn) btn.addEventListener('click', () => nav.classList.toggle('hidden'));
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

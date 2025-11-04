@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>制作実績 | wonder</title>
+  <meta name="description" content="wonderの制作実績（ポートフォリオ）。カフェLP、美容サロンLPなど、PC/スマホで動作確認できるデモを掲載。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="制作実績 | wonder" />
+  <meta property="og:description" content="カフェLP、美容サロンLPなど、PC/スマホで動作確認できるデモを掲載。" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1200" />
+  <link rel="icon" href="assets/wonder-logo.svg" type="image/svg+xml" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: { colors: { brand: { DEFAULT:'#2563eb', dark:'#1e40af', light:'#60a5fa' }}}}
+    }
+  </script>
+  <style>
+    html{scroll-behavior:smooth}
+    /* 小さな質感UP */
+    .card:hover img{transform:scale(1.03)}
+  </style>
+  <!-- 構造化データ（ItemList） -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"wonder ポートフォリオ",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"url":"samplesite1.html","name":"Sample Cafe（LP）"},
+      {"@type":"ListItem","position":2,"url":"samplesite2.html","name":"Salon Lumière（美容サロンLP）"}
+    ]
+  }
+  </script>
+</head>
+<body class="bg-white text-slate-800">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/80 border-b">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3" aria-label="wonder ホームへ戻る">
+        <!-- ロゴ（インラインSVG） -->
+        <svg viewBox="0 0 48 48" class="h-9 w-9" aria-hidden="true">
+          <defs>
+            <linearGradient id="wgrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#2563eb"/><stop offset="1" stop-color="#60a5fa"/>
+            </linearGradient>
+          </defs>
+          <path d="M6 8 L12 40 L24 16 L36 40 L42 8" fill="none" stroke="url(#wgrad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="font-semibold">wonder</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm">
+        <a href="index.html#features" class="hover:text-brand">特徴</a>
+        <a href="index.html#plans" class="hover:text-brand">料金</a>
+        <a href="index.html#process" class="hover:text-brand">制作の流れ</a>
+        <a href="portfolio.html" aria-current="page" class="px-4 py-2 rounded-xl bg-brand text-white hover:bg-brand-dark">制作実績</a>
+        <a href="index.html#contact" class="hover:text-brand">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-brand/10 to-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <nav class="text-sm text-slate-500" aria-label="breadcrumb">
+        <a href="index.html" class="hover:text-brand">Home</a>
+        <span class="mx-1">/</span><span class="text-slate-700">制作実績</span>
+      </nav>
+      <div class="mt-3 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <h1 class="text-3xl sm:text-4xl font-bold">制作実績（ポートフォリオ）</h1>
+          <p class="mt-2 text-slate-600">実案件イメージとして作成したデモ。クリックで新規タブ、またはページ内プレビューが可能です。</p>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+          <span class="px-3 py-1 rounded-full bg-white border shadow">実績数：件（随時追加）</span>
+          <a href="#previewWrap" class="px-3 py-1 rounded-full border text-slate-600 hover:border-brand hover:text-brand">ページ内プレビュー</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid -->
+  <main class="py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-6 sm:grid-cols-2">
+      <!-- Card 1 -->
+      <article class="card rounded-2xl border bg-white shadow-sm overflow-hidden transition">
+        <div class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800"
+            srcset="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=480 480w, https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800 800w, https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=1200 1200w"
+            sizes="(max-width:640px) 100vw, 50vw"
+            alt="カフェLPのヘッダー画像"
+            class="w-full h-48 object-cover transition will-change-transform"
+            loading="lazy" decoding="async" />
+          <span class="absolute top-3 left-3 text-[11px] px-2 py-1 rounded-full bg-white/90 border">LP / 飲食向け</span>
+        </div>
+        <div class="p-6">
+          <h2 class="text-xl font-semibold">Sample Cafe（LP）</h2>
+          <p class="mt-1 text-sm text-slate-600">落ち着いた雰囲気の飲食店向けランディングページ。予約フォーム、レビュー、ギャラリー付き。</p>
+          <ul class="mt-3 flex flex-wrap gap-2 text-[11px] text-slate-600">
+            <li class="px-2 py-1 border rounded-full">HTML</li>
+            <li class="px-2 py-1 border rounded-full">Tailwind</li>
+            <li class="px-2 py-1 border rounded-full">フォーム</li>
+          </ul>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a href="samplesite1.html" class="px-4 py-2 rounded-xl bg-brand text-white hover:bg-brand-dark text-sm">サイトを開く</a>
+            <button class="px-4 py-2 rounded-xl border text-sm hover:border-brand hover:text-brand" onclick="openPreview('samplesite1.html')">ページ内でプレビュー</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card 2 -->
+      <article class="card rounded-2xl border bg-white shadow-sm overflow-hidden transition">
+        <div class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800"
+            srcset="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=480 480w, https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800 800w, https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1200 1200w"
+            sizes="(max-width:640px) 100vw, 50vw"
+            alt="美容サロンLPのヘッダー画像"
+            class="w-full h-48 object-cover transition will-change-transform"
+            loading="lazy" decoding="async" />
+          <span class="absolute top-3 left-3 text-[11px] px-2 py-1 rounded-full bg-white/90 border">LP / 美容向け</span>
+        </div>
+        <div class="p-6">
+          <h2 class="text-xl font-semibold">Salon Lumière（美容サロンLP）</h2>
+          <p class="mt-1 text-sm text-slate-600">カラー・トリートメント訴求の美容サロン向けLP。価格表、スタイリスト、FAQ、予約フォームを実装。</p>
+          <ul class="mt-3 flex flex-wrap gap-2 text-[11px] text-slate-600">
+            <li class="px-2 py-1 border rounded-full">HTML</li>
+            <li class="px-2 py-1 border rounded-full">Tailwind</li>
+            <li class="px-2 py-1 border rounded-full">予約/FAQ</li>
+          </ul>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a href="samplesite2.html" class="px-4 py-2 rounded-xl bg-brand text-white hover:bg-brand-dark text-sm">サイトを開く</a>
+            <button class="px-4 py-2 rounded-xl border text-sm hover:border-brand hover:text-brand" onclick="openPreview('samplesite2.html')">ページ内でプレビュー</button>
+          </div>
+          <p class="mt-2 text-xs text-slate-400">※ もしファイル名が <code>samplesite.html2</code> の場合は、<code>samplesite2.html</code> にリネームしてください。</p>
+        </div>
+      </article>
+    </div>
+
+    <!-- Preview area -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10" aria-label="ページ内プレビュー">
+      <div id="previewWrap" class="hidden">
+        <div class="flex items-center justify-between mb-2">
+          <h3 class="font-semibold">プレビュー</h3>
+          <div class="flex items-center gap-2">
+            <button onclick="reloadPreview()" class="text-sm px-3 py-1 rounded-lg border hover:border-brand hover:text-brand" aria-label="再読み込み">再読み込み</button>
+            <button onclick="closePreview()" class="text-sm px-3 py-1 rounded-lg border hover:border-brand hover:text-brand" aria-label="閉じる">閉じる</button>
+          </div>
+        </div>
+        <div class="rounded-2xl border overflow-hidden">
+          <div class="bg-slate-50 border-b px-3 py-2 text-xs text-slate-500 flex items-center justify-between">
+            <span id="previewPath" class="truncate">about:blank</span>
+            <span>16:9 / PC表示想定</span>
+          </div>
+          <div style="aspect-ratio: 16/9;">
+            <iframe id="previewFrame" title="preview" src="about:blank" class="w-full h-full" loading="lazy" referrerpolicy="no-referrer"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t bg-white mt-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-sm text-slate-600">
+      <div class="flex items-center gap-3">
+        <!-- フッターロゴ -->
+        <svg viewBox="0 0 48 48" class="h-8 w-8" aria-hidden="true">
+          <defs>
+            <linearGradient id="wgrad2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#2563eb"/><stop offset="1" stop-color="#60a5fa"/>
+            </linearGradient>
+          </defs>
+          <path d="M6 8 L12 40 L24 16 L36 40 L42 8" fill="none" stroke="url(#wgrad2)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <div class="font-semibold">wonder</div>
+          <div>© <span id="year"></span> wonder</div>
+        </div>
+      </div>
+      <div class="mt-4 flex flex-wrap gap-5">
+        <a href="index.html#features" class="hover:text-brand">特徴</a>
+        <a href="index.html#plans" class="hover:text-brand">料金</a>
+        <a href="index.html#process" class="hover:text-brand">制作の流れ</a>
+        <a href="portfolio.html" class="hover:text-brand">制作実績</a>
+        <a href="index.html#contact" class="hover:text-brand">お問い合わせ</a>
+        <a href="privacy.html" class="hover:text-brand">プライバシーポリシー</a>
+        <a href="law.html" class="hover:text-brand">特商法表記</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function openPreview(path){
+      const w = document.getElementById('previewWrap');
+      const f = document.getElementById('previewFrame');
+      const p = document.getElementById('previewPath');
+      f.src = path;
+      p.textContent = path;
+      w.classList.remove('hidden');
+      w.scrollIntoView({behavior:'smooth'});
+    }
+    function closePreview(){
+      const w = document.getElementById('previewWrap');
+      const f = document.getElementById('previewFrame');
+      const p = document.getElementById('previewPath');
+      f.src = 'about:blank';
+      p.textContent = 'about:blank';
+      w.classList.add('hidden');
+    }
+    function reloadPreview(){
+      const f = document.getElementById('previewFrame');
+      f.src = f.src;
+    }
+  </script>
+</body>
+</html>

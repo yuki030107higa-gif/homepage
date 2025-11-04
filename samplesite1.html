@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sample Cafe｜くつろぎの時間を</title>
+  <meta name="description" content="Sample Cafe は、丁寧に淹れたコーヒーと自家製スイーツで、くつろぎの時間を届けるデモ用カフェサイトです。" />
+  <link rel="icon" href="https://fav.farm/☕" />
+  <style>
+    :root{
+      --brand:#8b5e34; --brand-dark:#5f3e22; --cream:#fff8ee; --ink:#333; --muted:#666;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; color:var(--ink); background:#fff}
+    a{color:inherit}
+    /* Header */
+    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px); background:rgba(255,255,255,.85); border-bottom:1px solid #eee}
+    .container{max-width:1080px; margin:auto; padding:0 20px}
+    .nav{display:flex; align-items:center; justify-content:space-between; height:64px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700}
+    .logo{width:36px; height:36px; border-radius:10px; background:var(--brand); color:#fff; display:inline-flex; align-items:center; justify-content:center}
+    .menu{display:flex; gap:18px}
+    .menu a{font-size:14px; text-decoration:none; padding:8px 10px; border-radius:10px}
+    .menu a:hover{background:#f6f6f6}
+    .cta{background:var(--brand); color:#fff !important}
+    .cta:hover{background:var(--brand-dark)}
+    .menu-btn{display:none}
+
+    /* Hero */
+    .hero{position:relative; min-height:68vh; display:grid; place-items:center; color:#fff;}
+    .hero::before{content:""; position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=1600') center/cover no-repeat;}
+    .hero::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.55));}
+    .hero-inner{position:relative; text-align:center; padding:40px}
+    .hero h1{font-size:40px; margin:0 0 10px}
+    .hero p{margin:0 0 20px; font-size:16px; opacity:.95}
+    .hero .btn{display:inline-block; padding:12px 18px; border-radius:12px; background:#fff; color:var(--brand); font-weight:700; text-decoration:none}
+
+    /* Sections */
+    section{padding:70px 0}
+    h2{font-size:28px; margin:0 0 10px}
+    .lead{color:var(--muted); margin:0 0 30px}
+
+    /* About */
+    .grid{display:grid; gap:24px}
+    .about{grid-template-columns: 1.1fr .9fr}
+    .card{background:#fff; border:1px solid #eee; border-radius:16px; padding:22px; box-shadow:0 8px 24px rgba(0,0,0,.04)}
+    .badge{display:inline-block; background:var(--cream); color:var(--brand); padding:6px 10px; border-radius:999px; font-size:12px; margin-bottom:8px}
+
+    /* Menu */
+    .menu-grid{grid-template-columns:repeat(4,1fr)}
+    .menu-item{background:var(--cream); border:1px solid #f0e3d3; border-radius:16px; padding:16px}
+    .menu-item strong{display:block; margin-bottom:6px}
+    .price{float:right}
+
+    /* Gallery */
+    .gallery{grid-template-columns:repeat(3,1fr)}
+    .gallery img{width:100%; height:220px; object-fit:cover; border-radius:16px}
+
+    /* Reviews */
+    .reviews{grid-template-columns:repeat(3,1fr)}
+    .review{background:#fff; border:1px solid #eee; border-radius:16px; padding:18px}
+    .stars{color:#e4a11b}
+
+    /* Info */
+    .info{grid-template-columns: 1fr 1fr}
+    table{width:100%; border-collapse:separate; border-spacing:0 8px}
+    td{padding:10px 12px; background:#fafafa; border-radius:10px}
+
+    /* Contact */
+    form{display:grid; gap:12px}
+    input, textarea{width:100%; padding:12px; border:1px solid #ddd; border-radius:12px; font:inherit}
+    button{padding:12px 16px; border:none; border-radius:12px; background:var(--brand); color:#fff; font-weight:700}
+    button:hover{background:var(--brand-dark)}
+
+    /* Footer */
+    footer{background:#111; color:#ddd; padding:40px 0; font-size:14px}
+    .footer-grid{display:grid; gap:18px; grid-template-columns: 1.2fr 1fr 1fr}
+    .social a{display:inline-block; margin-right:10px; text-decoration:none}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .about,.menu-grid,.gallery,.reviews,.info,.footer-grid{grid-template-columns:1fr 1fr}
+      .menu-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:640px){
+      .menu{display:none}
+      .menu-btn{display:inline-block; background:#eee; border:none; padding:8px 10px; border-radius:10px}
+      .hero h1{font-size:28px}
+      .about,.menu-grid,.gallery,.reviews,.info,.footer-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header aria-label="Site header">
+    <div class="container nav">
+      <div class="brand"><span class="logo">☕</span> <span>Sample Cafe</span></div>
+      <nav class="menu" aria-label="Primary">
+        <a href="#about">ABOUT</a>
+        <a href="#menu">MENU</a>
+        <a href="#gallery">GALLERY</a>
+        <a href="#reviews">REVIEWS</a>
+        <a href="#info">ACCESS</a>
+        <a href="#contact" class="cta">RESERVE</a>
+      </nav>
+      <button class="menu-btn" id="openMenu" aria-label="メニュー">☰</button>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" role="banner">
+    <div class="hero-inner">
+      <h1>くつろぎの時間を、ここで。</h1>
+      <p>丁寧に淹れた一杯と、自家製スイーツ。毎日を少し良くするカフェ。</p>
+      <a href="#contact" class="btn">席を予約する</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p class="lead">Sample Cafe は、焙煎度の異なる3種のブレンドと、店内仕込みの焼き菓子を楽しめるカフェです。静かな店内で、仕事や勉強にも最適。</p>
+      <div class="grid about">
+        <div class="card">
+          <span class="badge">こだわり</span>
+          <h3>毎日飲みたい、軽やかな一杯</h3>
+          <p>産地を限定せず“日常に寄り添う味”を追求。抽出はペーパードリップ、豆はご注文ごとに挽きます。</p>
+          <ul>
+            <li>Free Wi‑Fi / コンセント席あり</li>
+            <li>テイクアウト可 / マイカップ割</li>
+            <li>全席禁煙 / ベビーカーOK</li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="badge">営業時間</span>
+          <table>
+            <tr><td>平日</td><td>08:00 – 19:00</td></tr>
+            <tr><td>土日祝</td><td>09:00 – 18:00</td></tr>
+            <tr><td>定休日</td><td>火曜</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section id="menu" style="background:var(--cream)">
+    <div class="container">
+      <h2>Menu</h2>
+      <p class="lead">人気メニューの一部をご紹介。季節限定メニューもございます。</p>
+      <div class="grid menu-grid">
+        <div class="menu-item"><strong>ブレンドコーヒー</strong><span class="price">¥480</span><br><small>軽やかな飲み口</small></div>
+        <div class="menu-item"><strong>カフェラテ</strong><span class="price">¥520</span><br><small>ミルクの甘み</small></div>
+        <div class="menu-item"><strong>自家製チーズケーキ</strong><span class="price">¥550</span><br><small>濃厚しっとり</small></div>
+        <div class="menu-item"><strong>季節のパフェ</strong><span class="price">¥680</span><br><small>旬の果実を使用</small></div>
+        <div class="menu-item"><strong>アメリカーノ</strong><span class="price">¥450</span></div>
+        <div class="menu-item"><strong>モカ</strong><span class="price">¥560</span></div>
+        <div class="menu-item"><strong>ガトーショコラ</strong><span class="price">¥560</span></div>
+        <div class="menu-item"><strong>スコーン（2種）</strong><span class="price">各 ¥300</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="container">
+      <h2>Gallery</h2>
+      <p class="lead">店内やメニューの雰囲気を写真でどうぞ。</p>
+      <div class="grid gallery">
+        <img src="https://images.unsplash.com/photo-1459755486867-b55449bb39ff?w=800" alt="カウンター" loading="lazy"/>
+        <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=800" alt="スイーツ" loading="lazy"/>
+        <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=800" alt="ラテ" loading="lazy"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews" style="background:var(--cream)">
+    <div class="container">
+      <h2>Reviews</h2>
+      <p class="lead">うれしい声をいただいています。</p>
+      <div class="grid reviews">
+        <div class="review"><div class="stars">★★★★★</div><p>落ち着いた空間で作業がはかどります。ケーキが絶品！</p><small>— M.K.</small></div>
+        <div class="review"><div class="stars">★★★★☆</div><p>ラテが好みの味。スタッフさんの笑顔が素敵でした。</p><small>— M.S.</small></div>
+        <div class="review"><div class="stars">★★★★★</div><p>Wi‑Fi速い。朝のブレンドが毎日の楽しみです。</p><small>— M.T.</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Access / Info -->
+  <section id="info">
+    <div class="container">
+      <h2>Access</h2>
+      <div class="grid info">
+        <div class="card">
+          <h3>店舗情報</h3>
+          <table>
+            <tr><td>住所</td><td>東京都〇〇区〇〇 1-2-3</td></tr>
+            <tr><td>電話</td><td>03-1234-5678</td></tr>
+            <tr><td>席数</td><td>テーブル20席 / カウンター6席</td></tr>
+            <tr><td>支払い</td><td>現金 / クレジット / 交通系IC</td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <h3>地図</h3>
+          <div style="aspect-ratio:16/9; background:#eee; border-radius:12px; overflow:hidden">
+            <iframe title="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.9460799999997!2d139.767125!3d35.681236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5pel5pys44CB5p2x5Lqs6YO95rWc5p2-5aSn!5e0!3m2!1sja!2sjp!4v000000000" width="100%" height="100%" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Reserve -->
+  <section id="contact" style="background:var(--cream)">
+    <div class="container">
+      <h2>Reserve / Contact</h2>
+      <p class="lead">ご予約・お問い合わせはこちらから。</p>
+      <div class="grid info">
+        <form name="contact" method="POST" data-netlify="true" class="card" aria-label="予約フォーム">
+          <input type="hidden" name="form-name" value="contact">
+          <div class="grid" style="grid-template-columns:1fr 1fr; gap:12px">
+            <div><label>お名前<br><input name="name" required placeholder="山田 太郎"></label></div>
+            <div><label>メール<br><input type="email" name="email" required placeholder="you@example.com"></label></div>
+          </div>
+          <div class="grid" style="grid-template-columns:1fr 1fr; gap:12px">
+            <div><label>来店日時<br><input type="datetime-local" name="datetime"></label></div>
+            <div><label>人数<br><input type="number" min="1" max="10" name="guests" placeholder="2"></label></div>
+          </div>
+          <label>ご要望<br><textarea rows="4" name="message" placeholder="席の希望など"></textarea></label>
+          <button type="submit">送信する</button>
+        </form>
+        <div class="card">
+          <h3>直接のご連絡</h3>
+          <p>メール：info@samplecafe.com<br>Instagram：@samplecafe</p>
+          <p>受付時間：9:00–18:00（火曜定休）</p>
+          <p style="font-size:12px; color:var(--muted)">※このサイトはポートフォリオ用のデモです。実在の店舗ではありません。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px"><span class="logo">☕</span><strong>Sample Cafe</strong></div>
+        <p class="muted">毎日を少し良くする一杯を。</p>
+      </div>
+      <div>
+        <strong>Links</strong><br>
+        <a href="#about">About</a><br>
+        <a href="#menu">Menu</a><br>
+        <a href="#contact">Reserve</a>
+      </div>
+      <div>
+        <strong>Social</strong><br>
+        <div class="social">
+          <a href="#">Instagram</a>
+          <a href="#">X</a>
+          <a href="#">Facebook</a>
+        </div>
+      </div>
+    </div>
+    <div class="container" style="padding-top:12px; color:#aaa">© 2025 Sample Cafe — Demo website for portfolio</div>
+  </footer>
+
+  <script>
+    // Simple mobile menu
+    const btn = document.getElementById('openMenu');
+    const header = document.querySelector('header');
+    btn?.addEventListener('click', ()=>{
+      const nav = document.createElement('div');
+      nav.style.position='fixed';nav.style.inset='64px 0 0 0';nav.style.background='rgba(255,255,255,.98)';nav.style.backdropFilter='blur(6px)';nav.style.padding='16px';
+      nav.innerHTML = `
+        <div style="display:grid; gap:12px; font-size:16px">
+          <a href="#about">ABOUT</a>
+          <a href="#menu">MENU</a>
+          <a href="#gallery">GALLERY</a>
+          <a href="#reviews">REVIEWS</a>
+          <a href="#info">ACCESS</a>
+          <a href="#contact" class="cta" style="background:var(--brand); color:#fff; padding:10px 12px; border-radius:10px; text-align:center; text-decoration:none">RESERVE</a>
+          <button id="closeNav" style="padding:10px 12px; border-radius:10px; border:1px solid #ddd">閉じる</button>
+        </div>`;
+      document.body.appendChild(nav);
+      nav.querySelector('#closeNav').addEventListener('click', ()=> nav.remove());
+      nav.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=> nav.remove()));
+    });
+  </script>
+</body>
+</html>

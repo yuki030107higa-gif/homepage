@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Salon Lumière｜美容サロンLP（サンプル）</title>
+  <meta name="description" content="Salon Lumière は、カット・カラー・トリートメントに特化した架空の美容サロン。予約導線・実績・口コミを備えたポートフォリオ用LP。" />
+  <link rel="icon" href="https://fav.farm/💇" />
+  <style>
+    :root{--brand:#c084fc;--brand-dark:#7e22ce;--ink:#27272a;--muted:#6b7280;--bg:#fff;--card:#fff;--soft:#faf5ff}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; color:var(--ink); background:var(--bg)}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:auto;padding:0 20px}
+    /* header */
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border-bottom:1px solid #eee}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+    .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand),#f0abfc);display:inline-grid;place-items:center;color:#fff}
+    .menu{display:flex;gap:18px}
+    .menu a{font-size:14px;padding:8px 10px;border-radius:10px}
+    .menu a:hover{background:#f6f6f6}
+    .cta{background:var(--brand);color:#fff!important;border-radius:10px}
+    .cta:hover{background:var(--brand-dark)}
+    .menu-btn{display:none}
+
+    /* hero */
+    .hero{position:relative;min-height:70vh;display:grid;place-items:center;color:#fff;text-align:center}
+    .hero::before{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=1600') center/cover no-repeat}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.6))}
+    .hero-inner{position:relative;padding:40px}
+    .hero h1{font-size:40px;margin:0 0 10px}
+    .hero p{margin:0 0 20px;opacity:.95}
+    .btn{display:inline-block;padding:12px 18px;border-radius:12px;background:#fff;color:var(--brand);font-weight:700}
+
+    section{padding:72px 0}
+    h2{font-size:28px;margin:0 0 10px}
+    .lead{color:var(--muted);margin:0 0 28px}
+
+    .grid{display:grid;gap:24px}
+    .card{background:var(--card);border:1px solid #eee;border-radius:16px;padding:22px;box-shadow:0 8px 24px rgba(0,0,0,.04)}
+    .badge{display:inline-block;background:var(--soft);color:var(--brand-dark);padding:6px 10px;border-radius:999px;font-size:12px;margin-bottom:8px}
+
+    /* services */
+    .services{grid-template-columns:repeat(3,1fr)}
+    .services .price{font-weight:800;color:var(--brand-dark)}
+    .features{grid-template-columns:repeat(3,1fr)}
+
+    /* gallery */
+    .gallery{grid-template-columns:repeat(3,1fr)}
+    .gallery img{width:100%;height:220px;object-fit:cover;border-radius:16px}
+
+    /* reviews */
+    .reviews{grid-template-columns:repeat(3,1fr)}
+    .star{color:#e4a11b}
+
+    /* staff */
+    .staff{grid-template-columns:repeat(3,1fr)}
+    .avatar{width:72px;height:72px;border-radius:999px;object-fit:cover}
+
+    /* booking */
+    form{display:grid;gap:12px}
+    input,select,textarea{width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:12px;font:inherit}
+    button{padding:12px 16px;border:none;border-radius:12px;background:var(--brand);color:#fff;font-weight:800}
+    button:hover{background:var(--brand-dark)}
+    .info{grid-template-columns:1fr 1fr}
+
+    /* faq */
+    details{background:#fafafa;border:1px solid #eee;border-radius:12px;padding:14px}
+    summary{cursor:pointer;font-weight:700}
+
+    /* footer */
+    footer{background:#0b0b0b;color:#ddd;padding:40px 0;font-size:14px}
+    .footer-grid{display:grid;gap:18px;grid-template-columns:1.2fr 1fr 1fr}
+
+    /* responsive */
+    @media(max-width:900px){
+      .services,.features,.gallery,.reviews,.staff,.info,.footer-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:640px){
+      .menu{display:none}.menu-btn{display:inline-block;background:#eee;border:none;padding:8px 10px;border-radius:10px}
+      .hero h1{font-size:28px}
+      .services,.features,.gallery,.reviews,.staff,.info,.footer-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand"><span class="logo">✂</span><span>Salon Lumière</span></div>
+      <nav class="menu" aria-label="primary">
+        <a href="#about">ABOUT</a>
+        <a href="#services">MENU</a>
+        <a href="#gallery">GALLERY</a>
+        <a href="#reviews">REVIEWS</a>
+        <a href="#staff">STYLIST</a>
+        <a href="#booking" class="cta">RESERVE</a>
+      </nav>
+      <button class="menu-btn" id="openMenu">☰</button>
+    </div>
+  </header>
+
+  <section class="hero" role="banner">
+    <div class="hero-inner">
+      <h1>髪に、光を。</h1>
+      <p>透明感カラーと髪質改善トリートメント。あなたの“らしさ”を引き出すサロン。</p>
+      <a href="#booking" class="btn">24時間WEB予約</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>About</h2>
+      <p class="lead">カウンセリング重視。ダメージを最小限に抑える設計で、持ちの良さと再現性を叶えます。</p>
+      <div class="grid features">
+        <div class="card"><span class="badge">Feature</span><h3>透明感カラー</h3><p>赤みを抑えた柔らかな色味。ブリーチなしでも叶うニュアンス。</p></div>
+        <div class="card"><span class="badge">Feature</span><h3>髪質改善</h3><p>一人ひとりの髪質に合わせた処方で、うるツヤの素髪へ。</p></div>
+        <div class="card"><span class="badge">Feature</span><h3>再現性カット</h3><p>日常で扱いやすい形に。伸びても崩れにくいシルエット。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" style="background:var(--soft)">
+    <div class="container">
+      <h2>Menu / Price</h2>
+      <p class="lead">人気メニューと目安料金（税抜）。指名料＋¥500。</p>
+      <div class="grid services">
+        <div class="card"><h3>Cut</h3><p>カウンセリング／シャンプー込</p><p class="price">¥4,500</p></div>
+        <div class="card"><h3>Color</h3><p>ダメージを抑えた透明感カラー</p><p class="price">¥6,800</p></div>
+        <div class="card"><h3>Treatment</h3><p>髪質改善トリートメント</p><p class="price">¥5,500</p></div>
+        <div class="card"><h3>Cut + Color</h3><p>人気No.1 セット</p><p class="price">¥10,800</p></div>
+        <div class="card"><h3>Color + Treatment</h3><p>色持ち＆ツヤUP</p><p class="price">¥11,800</p></div>
+        <div class="card"><h3>Perm</h3><p>柔らかな動きのデザイン</p><p class="price">¥8,800</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <div class="container">
+      <h2>Gallery</h2>
+      <p class="lead">スタイルの一例。仕上がりの質感にこだわります。</p>
+      <div class="grid gallery">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=800" alt="style1" loading="lazy"/>
+        <img src="https://picsum.photos/seed/salon2/800/600" alt="style2" loading="lazy" decoding="async" srcset="https://picsum.photos/seed/salon2/480/360 480w, https://picsum.photos/seed/salon2/800/600 800w, https://picsum.photos/seed/salon2/1200/900 1200w" sizes="(max-width:640px) 100vw, 33vw" onerror="this.src='https://picsum.photos/800/600?random=2'; this.onerror=null;"/>
+        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800" alt="style3" loading="lazy"/>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" style="background:var(--soft)">
+    <div class="container">
+      <h2>Reviews</h2>
+      <p class="lead">うれしいお声を紹介します。</p>
+      <div class="grid reviews">
+        <div class="card"><div class="star">★★★★★</div><p>色味が最高。朝のセットが簡単になりました！</p><small>— A.M.</small></div>
+        <div class="card"><div class="star">★★★★☆</div><p>丁寧なカウンセリングで安心。ツヤが戻りました。</p><small>— K.R.</small></div>
+        <div class="card"><div class="star">★★★★★</div><p>職場でも好評！またお願いしたいです。</p><small>— S.T.</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="staff">
+    <div class="container">
+      <h2>Stylist</h2>
+      <p class="lead">経験豊富なスタイリストが担当します。</p>
+      <div class="grid staff">
+        <div class="card"><img class="avatar" src="https://images.unsplash.com/photo-1541647376583-8934aaf3448a?w=300" alt="stylist1"/><h3>Rina</h3><p>透明感カラー／くびれボブ</p></div>
+        <div class="card"><img class="avatar" src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?w=300" alt="stylist2"/><h3>Yuto</h3><p>メンズカット／パーマ</p></div>
+        <div class="card"><img class="avatar" src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=300" alt="stylist3"/><h3>Mai</h3><p>髪質改善／ロングレイヤー</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="booking" style="background:var(--soft)">
+    <div class="container">
+      <h2>Reserve / Contact</h2>
+      <p class="lead">24時間受付。確認メールを自動送信（デモ）。</p>
+      <div class="grid info">
+        <form name="reserve" method="POST" data-netlify="true" class="card" aria-label="予約フォーム">
+          <input type="hidden" name="form-name" value="reserve">
+          <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
+            <div><label>お名前<br><input name="name" required placeholder="山田 花子"></label></div>
+            <div><label>メール<br><input type="email" name="email" required placeholder="you@example.com"></label></div>
+          </div>
+          <div class="grid" style="grid-template-columns:1fr 1fr;gap:12px">
+            <div><label>希望日時<br><input type="datetime-local" name="datetime"></label></div>
+            <div><label>メニュー<br>
+              <select name="menu">
+                <option>Cut</option>
+                <option>Color</option>
+                <option>Treatment</option>
+                <option>Cut + Color</option>
+              </select></label>
+            </div>
+          </div>
+          <label>ご要望<br><textarea rows="4" name="message" placeholder="スタイルの希望など"></textarea></label>
+          <button type="submit">予約する</button>
+        </form>
+        <div class="card">
+          <h3>店舗情報</h3>
+          <p>住所：東京都〇〇区〇〇 1-2-3</p>
+          <p>営業時間：10:00–20:00（火曜定休）</p>
+          <p>電話：03-1234-5678</p>
+          <p>支払：現金／クレジット／交通系IC</p>
+          <p style="font-size:12px;color:var(--muted)">※本ページはポートフォリオ用サンプルです。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="grid" style="grid-template-columns:1fr 1fr">
+        <details><summary>ブリーチは必要ですか？</summary><p>希望の明度・色味により異なります。ご相談ください。</p></details>
+        <details><summary>子ども連れでも大丈夫？</summary><p>キッズ同伴OKの時間帯をご案内します。</p></details>
+        <details><summary>キャンセル料は？</summary><p>前日まで無料。当日キャンセルは一律¥1,000。</p></details>
+        <details><summary>駐車場はありますか？</summary><p>近隣コインパーキングをご案内します。</p></details>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-grid">
+      <div><div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><span class="logo">✂</span><strong>Salon Lumière</strong></div><p class="muted">“らしさ”に光を。</p></div>
+      <div><strong>Links</strong><br><a href="#services">Menu</a><br><a href="#booking">Reserve</a></div>
+      <div><strong>Social</strong><br><a href="#">Instagram</a> <a href="#">X</a></div>
+    </div>
+    <div class="container" style="padding-top:12px;color:#aaa">© 2025 Salon Lumière — Demo website for portfolio</div>
+  </footer>
+
+  <script>
+    const btn=document.getElementById('openMenu');
+    btn?.addEventListener('click',()=>{
+      const nav=document.createElement('div');
+      nav.style.position='fixed';nav.style.inset='64px 0 0 0';nav.style.background='rgba(255,255,255,.98)';nav.style.backdropFilter='blur(6px)';nav.style.padding='16px';
+      nav.innerHTML=`<div style="display:grid;gap:12px;font-size:16px">
+        <a href="#about">ABOUT</a>
+        <a href="#services">MENU</a>
+        <a href="#gallery">GALLERY</a>
+        <a href="#reviews">REVIEWS</a>
+        <a href="#staff">STYLIST</a>
+        <a href="#booking" style="background:var(--brand);color:#fff;padding:10px 12px;border-radius:10px;text-align:center">RESERVE</a>
+        <button id="closeNav" style="padding:10px 12px;border-radius:10px;border:1px solid #ddd">閉じる</button>
+      </div>`;
+      document.body.appendChild(nav);
+      nav.querySelector('#closeNav').addEventListener('click',()=>nav.remove());
+      nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.remove()));
+    });
+  </script>
+</body>
+</html>
